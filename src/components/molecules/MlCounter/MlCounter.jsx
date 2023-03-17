@@ -2,7 +2,7 @@ import React from 'react';
 import AtButton from 'components/atoms/AtButton';
 
 
-export class Counter extends React.Component {
+export class MlCounter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
