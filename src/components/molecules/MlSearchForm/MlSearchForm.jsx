@@ -36,7 +36,7 @@ export class MlSearchForm extends Component {
       {className: 'space-x-2 flex',},
       React.createElement(AtInput, {
         type: 'text',
-        className: 'bg-gray-500 placeholder-zinc-500 w-full p-3 rounded-sm text-slate-50',
+        className: 'bg-gray-500 placeholder-zinc-500 p-3 rounded-sm text-slate-50 w-full',
         placeholder: this.state.placeholder || 'Search...',
         value: this.state.query,
         onChange: this.handleInputChange,
