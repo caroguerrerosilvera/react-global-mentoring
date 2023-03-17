@@ -7,7 +7,7 @@ export class AtButton extends Component {
     return React.createElement(
       'button',
       {
-        className: `rounded-xl ${className}`,
+        className: `p-2 rounded-sm ${className || ''}`,
         ...otherProps,
       },
       children

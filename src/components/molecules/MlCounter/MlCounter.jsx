@@ -28,10 +28,10 @@ export class Counter extends React.Component {
   render() {
     return React.createElement(
       'div',
-      null,
+      { className: 'space-x-6 text-xl'},
+      React.createElement(AtButton, { onClick: this.decrement, className: 'w-[45px] bg-red-500 text-white' }, '-'),
       React.createElement('span', null, this.state.value),
-      React.createElement(AtButton, { onClick: this.decrement }, '-'),
-      React.createElement(AtButton, { onClick: this.increment }, '+')
+      React.createElement(AtButton, { onClick: this.increment, className: 'w-[45px] bg-red-500 text-white' }, '+')
     );
   }
 }
