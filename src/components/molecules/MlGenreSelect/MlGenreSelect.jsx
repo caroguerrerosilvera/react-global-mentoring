@@ -28,6 +28,7 @@ export class MlGenreSelect extends Component {
           key: genre,
           onClick: () => this.handleSelect(genre),
           className: `${buttonClassnames} text-slate-50`,
+          "data-testid": "genre-select",
         },
         genre
       );
