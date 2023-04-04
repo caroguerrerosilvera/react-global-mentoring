@@ -1,4 +1,3 @@
-import React from "react";
 import { MlGenreSelect } from "./MlGenreSelect";
 
 export default {
@@ -9,18 +8,15 @@ export default {
 const genres = ["Action", "Comedy", "Drama", "Horror", "Romance", "Thriller"];
 const selectedGenre = "Drama";
 
-const Template = (args) => <MlGenreSelect {...args} />;
+const Template = (args) => (
+  <div className="bg-slate-700">
+    <MlGenreSelect {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {
   genres,
-  selectedGenre,
-  onSelect: (genre) => console.log(`Selected genre: ${genre}`),
-};
-
-export const NoGenres = Template.bind({});
-NoGenres.args = {
-  genres: [],
   selectedGenre,
   onSelect: (genre) => console.log(`Selected genre: ${genre}`),
 };
@@ -30,19 +26,4 @@ NoSelectedGenre.args = {
   genres,
   selectedGenre: null,
   onSelect: (genre) => console.log(`Selected genre: ${genre}`),
-};
-
-export const CustomStyles = Template.bind({});
-CustomStyles.args = {
-  genres,
-  selectedGenre,
-  onSelect: (genre) => console.log(`Selected genre: ${genre}`),
-  style: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#333",
-    padding: "10px",
-    borderRadius: "5px",
-  },
 };
