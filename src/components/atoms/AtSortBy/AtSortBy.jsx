@@ -1,4 +1,4 @@
-export const AtSelect = ({
+export const AtSortBy = ({
   label = "",
   id,
   currentValue = "",

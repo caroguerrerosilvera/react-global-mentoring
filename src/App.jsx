@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { AtSelect } from "components/atoms";
+import { AtSortBy } from "components/atoms";
 import {
   MlCounter,
   MlSearchForm,
@@ -86,7 +86,7 @@ function App() {
       <section>
         <h3 className="font-semibold uppercase">Sort control component</h3>
         <div className="bg-gray-600 p-10">
-          <AtSelect
+          <AtSortBy
             label="Sort by"
             id="sort-by"
             currentValue={sortBy}
