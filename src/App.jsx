@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { MlCounter, MlSearchForm, MlGenreSelect } from "components/molecules";
+import { OrMovieTile } from "components/organisms";
 
 const GENRES = ["Action", "Comedy", "Drama", "Horror", "Sci-Fi"];
 
@@ -37,6 +38,21 @@ function App() {
             genres={GENRES}
             selectedGenre={selectedGenre}
             onSelect={handleSelectedGenre}
+          />
+        </div>
+      </section>
+
+      <section className="flex flex-col space-y-2 justify-center">
+        <h3 className="font-semibold uppercase">Movie Tile component</h3>
+        <div className="bg-gray-600 p-4 flex justify-center">
+          <OrMovieTile
+            title="Shingeki No Kyojin"
+            releaseYear={2013}
+            genres={["Accion"]}
+            imageUrl="https://static.posters.cz/image/750/plakaty/attack-on-titan-shingeki-no-kyojin-attack-i22797.jpg"
+            onEdit={() => console.log("On edit")}
+            onClick={() => console.log("On click")}
+            onDelete={() => console.log("On delete")}
           />
         </div>
       </section>
