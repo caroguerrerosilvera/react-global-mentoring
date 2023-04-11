@@ -1,7 +1,7 @@
 import { MlCounter } from "./MlCounter";
 
 export default {
-  title: "Components/MlCounter",
+  title: "Molecules/MlCounter",
   component: MlCounter,
   args: {
     initialValue: 0,

@@ -1,7 +1,7 @@
 import { MlSearchForm } from "./MlSearchForm";
 
 export default {
-  title: "Components/MlSearchForm",
+  title: "Molecules/MlSearchForm",
   component: MlSearchForm,
 };
 

@@ -1,7 +1,7 @@
 import { MlGenreSelect } from "./MlGenreSelect";
 
 export default {
-  title: "Components/MlGenreSelect",
+  title: "Molecules/MlGenreSelect",
   component: MlGenreSelect,
 };
 
