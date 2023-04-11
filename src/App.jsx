@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { AtSelect } from "components/atoms";
 import {
   MlCounter,
   MlSearchForm,
@@ -9,9 +10,14 @@ import {
 import { OrMovieTile } from "components/organisms";
 
 const GENRES = ["Action", "Comedy", "Drama", "Horror", "Sci-Fi"];
+const SORT_BY_OPTIONS = [
+  { label: "Release Date", value: "release" },
+  { label: "Title", value: "title" },
+];
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState(GENRES[0]);
+  const [sortBy, setSortBy] = useState(SORT_BY_OPTIONS[0].value);
 
   function handleSearch(query) {
     console.log(query);
@@ -73,6 +79,23 @@ function App() {
             releaseYear={2013}
             duration="2h 34min"
             description="La trama gira en torno a Eren Jaeger quien después de perder a su madre a manos de los titanes, decide unirse al «Ejército de las murallas» junto a su hermana adoptiva y su mejor amigo con el objetivo de vengar la muerte de su madre y destruir a los titanes."
+          />
+        </div>
+      </section>
+
+      <section>
+        <h3 className="font-semibold uppercase">Sort control component</h3>
+        <div className="bg-gray-600 p-10">
+          <AtSelect
+            label="Sort by"
+            id="sort-by"
+            currentValue={sortBy}
+            options={SORT_BY_OPTIONS}
+            handleChange={setSortBy}
+            styles={{
+              label: "uppercase font-light opacity-50 text-white",
+              options: "bg-gray-600 text-white uppercase focus:outline-none",
+            }}
           />
         </div>
       </section>
