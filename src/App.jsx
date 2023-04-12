@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { IoMdAdd } from "react-icons/io";
 
-import { AtSortBy } from "components/atoms";
+import { AtSortBy, AtButton } from "components/atoms";
 import {
   MlCounter,
   MlSearchForm,
@@ -16,6 +17,7 @@ const SORT_BY_OPTIONS = [
 ];
 
 function App() {
+  const [searchText, setSearchText] = useState("");
   const [selectedGenre, setSelectedGenre] = useState(GENRES[0]);
   const [sortBy, setSortBy] = useState(SORT_BY_OPTIONS[0].value);
 
@@ -28,77 +30,31 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col space-y-8 mx-auto max-w-2xl py-14" id="root">
-      <section className="flex flex-col space-y-2 justify-center">
-        <h3 className="font-semibold uppercase">Counter component</h3>
-        <MlCounter initialValue={2} />
-      </section>
+    <div className="flex flex-col space-y-8 mx-auto max-w-4xl" id="root">
+      <section className="relative overflow-hidden w-full py-10 px-16">
+        <div
+          id="hero"
+          className="absolute inset-y-0 w-screen xl:max-w-[1340px] 2xl:max-w-screen-2xl left-1/2 transform -translate-x-1/2 xl:rounded-[40px] z-0"
+        ></div>
+        <div className="relative flex flex-col">
+          <AtButton className="flex space-x-1 items-center justify-center bg-white opacity-[0.6] uppercase text-red-500 self-end px-4">
+            <IoMdAdd />
+            Add movie
+          </AtButton>
 
-      <section className="flex flex-col space-y-2 justify-center w-full">
-        <h3 className="font-semibold uppercase">Search form component</h3>
-        <MlSearchForm
-          placeholder="What do you want to watch?"
-          onSearch={handleSearch}
-        />
-      </section>
-
-      <section className="flex flex-col space-y-2 justify-center">
-        <h3 className="font-semibold uppercase ">Genre select component</h3>
-        <div className="bg-gray-600">
-          <MlGenreSelect
-            genres={GENRES}
-            selectedGenre={selectedGenre}
-            onSelect={handleSelectedGenre}
-          />
+          <div className="space-y-8 mt-8">
+            <h1 className="uppercase text-white text-[40px] font-light">
+              FIND YOUR MOViE
+            </h1>
+            <MlSearchForm
+              placeholder="What do you want to watch?"
+              onSearch={handleSearch}
+            />
+          </div>
         </div>
       </section>
-
-      <section className="flex flex-col space-y-2 justify-center">
-        <h3 className="font-semibold uppercase">Movie Tile component</h3>
-        <div className="bg-gray-600 p-4 flex justify-center">
-          <OrMovieTile
-            title="Shingeki No Kyojin"
-            releaseYear={2013}
-            genres={["Accion"]}
-            imageUrl="https://static.posters.cz/image/750/plakaty/attack-on-titan-shingeki-no-kyojin-attack-i22797.jpg"
-            onEdit={() => console.log("On edit")}
-            onClick={() => console.log("On click")}
-            onDelete={() => console.log("On delete")}
-          />
-        </div>
-      </section>
-
-      <section>
-        <h3 className="font-semibold uppercase">Movie Details component</h3>
-        <div className="bg-gray-600 p-10">
-          <MlMovieDetails
-            imageUrl="https://static.posters.cz/image/750/plakaty/attack-on-titan-shingeki-no-kyojin-attack-i22797.jpg"
-            title="Shingeki No Kyojin"
-            rating={8.7}
-            genres={["Accion"]}
-            releaseYear={2013}
-            duration="2h 34min"
-            description="La trama gira en torno a Eren Jaeger quien después de perder a su madre a manos de los titanes, decide unirse al «Ejército de las murallas» junto a su hermana adoptiva y su mejor amigo con el objetivo de vengar la muerte de su madre y destruir a los titanes."
-          />
-        </div>
-      </section>
-
-      <section>
-        <h3 className="font-semibold uppercase">Sort control component</h3>
-        <div className="bg-gray-600 p-10">
-          <AtSortBy
-            label="Sort by"
-            id="sort-by"
-            currentValue={sortBy}
-            options={SORT_BY_OPTIONS}
-            handleChange={setSortBy}
-            styles={{
-              label: "uppercase font-light opacity-50 text-white",
-              options: "bg-gray-600 text-white uppercase focus:outline-none",
-            }}
-          />
-        </div>
-      </section>
+      <section>NavBar</section>
+      <section>Movies</section>
     </div>
   );
 }

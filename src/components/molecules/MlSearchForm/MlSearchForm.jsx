@@ -37,7 +37,7 @@ export class MlSearchForm extends Component {
       React.createElement(AtInput, {
         type: "text",
         className:
-          "bg-gray-500 placeholder-zinc-500 p-3 rounded-sm text-slate-50 w-full",
+          "bg-gray-500 placeholder-zinc-500 p-3 rounded-sm text-slate-50 w-full bg-neutral-800 opacity-90",
         "data-testid": "search-form-input",
         placeholder: this.state.placeholder || "Search...",
         value: this.state.query,
