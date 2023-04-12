@@ -57,7 +57,7 @@ export const OrMovieTile = ({
             Delete
           </MenuItem>
         </Menu>
-        <img className="h-[500px] w-full" src={imageUrl} alt={title} />
+        <img className="h-[400px] w-full" src={imageUrl} alt={title} />
       </div>
       <div className="flex justify-between">
         <div className="flex flex-col text-white space-y-2">
