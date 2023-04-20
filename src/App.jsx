@@ -3,7 +3,7 @@ import { IoMdAdd } from "react-icons/io";
 
 import { AtSortBy, AtButton, AtLogo } from "components/atoms";
 import { MlSearchForm, MlGenreSelect } from "components/molecules";
-import { OrMovieTile } from "components/organisms";
+import { OrMovieTile, OrDialog } from "components/organisms";
 
 const MOVIES = [
   {
@@ -108,7 +108,9 @@ const SORT_BY_OPTIONS = [
 function App() {
   const [searchText, setSearchText] = useState("");
   const [movies, setMovies] = useState(MOVIES);
+  const [openMovieForm, setOpenMovieForm] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState(GENRES[0]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
   const [sortBy, setSortBy] = useState(SORT_BY_OPTIONS[0].value);
 
   function handleSearch(query) {
@@ -141,7 +143,10 @@ function App() {
         <div className="relative flex flex-col">
           <div className="flex items-center justify-between">
             <AtLogo />
-            <AtButton className="flex space-x-1 items-center justify-center bg-white opacity-[0.6] uppercase text-red-500 self-end px-4">
+            <AtButton
+              className="flex space-x-1 items-center justify-center bg-white opacity-[0.6] uppercase text-red-500 self-end px-4"
+              onClick={() => setOpenMovieForm(true)}
+            >
               <IoMdAdd />
               Add movie
             </AtButton>
@@ -193,6 +198,15 @@ function App() {
       <footer className="w-full text-center bg-[#424242] py-4">
         <AtLogo />
       </footer>
+
+      {openMovieForm && (
+        <OrDialog
+          title={selectedMovie ? "EDIT MOVIE" : "ADD MOVIE"}
+          onClose={() => setOpenMovieForm(false)}
+        >
+          <div>Hola</div>
+        </OrDialog>
+      )}
     </div>
   );
 }
