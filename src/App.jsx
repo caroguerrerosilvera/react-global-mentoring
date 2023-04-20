@@ -3,7 +3,7 @@ import { IoMdAdd } from "react-icons/io";
 
 import { AtSortBy, AtButton, AtLogo } from "components/atoms";
 import { MlSearchForm, MlGenreSelect } from "components/molecules";
-import { OrMovieTile, OrDialog } from "components/organisms";
+import { OrMovieTile, OrDialog, OrMovieForm } from "components/organisms";
 
 const MOVIES = [
   {
@@ -11,18 +11,27 @@ const MOVIES = [
     title: "La Batalla de los Sexos",
     releaseYear: 2017,
     genres: ["Comedia", "Drama", "Deportes"],
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     imageUrl: "https://image.tmdb.org/t/p/w500/9kg73Mg8WJKlB9Y2SAJzeDKAnuB.jpg",
     title: "Tenet",
     releaseYear: 2020,
     genres: ["Acción", "Ciencia ficción", "Suspenso"],
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     imageUrl: "https://image.tmdb.org/t/p/w500/lIE7kfdLBRd0KENNtOaIqPPWNqh.jpg",
     title: "Soul",
     releaseYear: 2020,
     genres: ["Animación", "Aventura", "Comedia"],
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     title: "El Club de la Pelea",
@@ -35,66 +44,99 @@ const MOVIES = [
     releaseYear: 1999,
     genres: ["Ciencia ficción", "Acción"],
     imageUrl: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     title: "Parásitos",
     releaseYear: 2019,
     genres: ["Drama", "Comedia", "Suspenso"],
     imageUrl: "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     title: "El Club de los Poetas Muertos",
     releaseYear: 1989,
     genres: ["Drama"],
     imageUrl: "https://image.tmdb.org/t/p/w500/i4kPwXPlM1iy8Jf3S1uuLuwqQAV.jpg",
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     title: "Interestelar",
     releaseYear: 2014,
     genres: ["Ciencia ficción", "Drama"],
     imageUrl: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     title: "La La Land",
     releaseYear: 2016,
     genres: ["Comedia", "Drama", "Musical"],
     imageUrl: "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg",
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     title: "Blade Runner 2049",
     releaseYear: 2017,
     genres: ["Ciencia ficción", "Suspenso"],
     imageUrl: "https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     title: "El Laberinto del Fauno",
     releaseYear: 2006,
     genres: ["Fantasía", "Drama", "Guerra"],
     imageUrl: "https://image.tmdb.org/t/p/w500/ebSnODDg9lbsMIaWg2uAbjn7TO5.jpg",
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     title: "Interestelar",
     releaseYear: 2014,
     genres: ["Ciencia ficción", "Drama"],
     imageUrl: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     title: "Jurassic Park",
     releaseYear: 1993,
     genres: ["Ciencia ficción", "Acción", "Aventura"],
     imageUrl: "https://image.tmdb.org/t/p/w500/9i3plLl89DHMz7mahksDaAo7HIS.jpg",
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     title: "El Hombre de Acero",
     releaseYear: 2013,
     genres: ["Acción", "Aventura", "Ciencia ficción"],
     imageUrl: "https://image.tmdb.org/t/p/w500/7rIPjn5TUK04O25ZkMyHrGNPgLx.jpg",
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
   {
     title: "Coco",
     releaseYear: 2017,
     genres: ["Animación", "Aventura", "Comedia"],
     imageUrl: "https://image.tmdb.org/t/p/w500/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg",
+    rating: 7.0,
+    runtime: 120,
+    overview: "",
   },
 ];
 
@@ -204,7 +246,7 @@ function App() {
           title={selectedMovie ? "EDIT MOVIE" : "ADD MOVIE"}
           onClose={() => setOpenMovieForm(false)}
         >
-          <div>Hola</div>
+          <OrMovieForm />
         </OrDialog>
       )}
     </div>
