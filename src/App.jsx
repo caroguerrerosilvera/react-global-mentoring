@@ -240,14 +240,13 @@ function App() {
         <AtLogo />
       </footer>
 
-      {openMovieForm && (
-        <OrDialog
-          title={selectedMovie ? "EDIT MOVIE" : "ADD MOVIE"}
-          onClose={handleCloseMovieForm}
-        >
-          <OrMovieForm movieInfo={selectedMovie} />
-        </OrDialog>
-      )}
+      <OrDialog
+        open={openMovieForm}
+        title={selectedMovie ? "EDIT MOVIE" : "ADD MOVIE"}
+        onClose={handleCloseMovieForm}
+      >
+        <OrMovieForm movieInfo={selectedMovie} />
+      </OrDialog>
     </div>
   );
 }
