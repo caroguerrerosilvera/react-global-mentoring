@@ -62,8 +62,11 @@ export const OrMovieForm = ({ movieInfo, onSubmit }) => {
             className="w-full h-[40px] text-slate-50 bg-[#323232]/95 rounded-md focus:outline-none px-3"
             type="text"
             name="genres"
-            defaultValue={movieInfo?.genres}
+            defaultValue={movieInfo?.genres.join(",")}
           />
+          <span className="text-red-500 text-xs">
+            Enter at least 1 gender. Remember to separate them by comma
+          </span>
         </label>
 
         <label className="col-span-2 flex flex-col space-y-2">
