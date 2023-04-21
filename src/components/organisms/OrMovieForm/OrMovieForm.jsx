@@ -18,6 +18,7 @@ export const OrMovieForm = ({ movieInfo, onSubmit }) => {
         <label className="col-span-3 flex flex-col space-y-2">
           <span className="text-red-500">TITLE</span>
           <AtInput
+            id="title"
             className="w-full h-[40px] text-slate-50 bg-[#323232]/95 rounded-md focus:outline-none px-3"
             type="text"
             name="title"
@@ -25,19 +26,21 @@ export const OrMovieForm = ({ movieInfo, onSubmit }) => {
           />
         </label>
 
-        <label className="col-span-2 flex flex-col space-y-2">
+        <label className="col-span-2 flex flex-col space-y-2" htmlFor="release">
           <span className="text-red-500">RELEASE YEAR</span>
           <AtInput
+            id="release"
             className="w-full h-[40px] text-slate-50 bg-[#323232]/95 rounded-md focus:outline-none px-3"
             type="text"
-            name="title"
+            name="releaseYear"
             defaultValue={movieInfo?.releaseYear}
           />
         </label>
 
-        <label className="col-span-3 flex flex-col space-y-2">
+        <label className="col-span-3 flex flex-col space-y-2" htmlFor="cover">
           <span className="text-red-500">COVER URL</span>
           <AtInput
+            id="cover"
             className="w-full h-[40px] text-slate-50 bg-[#323232]/95 rounded-md focus:outline-none px-3"
             type="text"
             name="imageUrl"
@@ -46,9 +49,10 @@ export const OrMovieForm = ({ movieInfo, onSubmit }) => {
           />
         </label>
 
-        <label className="col-span-2 flex flex-col space-y-2">
+        <label className="col-span-2 flex flex-col space-y-2" htmlFor="rating">
           <span className="text-red-500">RATING</span>
           <AtInput
+            id="rating"
             className="w-full h-[40px] text-slate-50 bg-[#323232]/95 rounded-md focus:outline-none px-3"
             type="text"
             name="rating"
@@ -56,22 +60,21 @@ export const OrMovieForm = ({ movieInfo, onSubmit }) => {
           />
         </label>
 
-        <label className="col-span-3 flex flex-col space-y-2">
+        <label className="col-span-3 flex flex-col space-y-2" htmlFor="genres">
           <span className="text-red-500">GENRES</span>
           <AtInput
+            id="genres"
             className="w-full h-[40px] text-slate-50 bg-[#323232]/95 rounded-md focus:outline-none px-3"
             type="text"
             name="genres"
             defaultValue={movieInfo?.genres.join(",")}
           />
-          <span className="text-red-500 text-xs">
-            Enter at least 1 gender. Remember to separate them by comma
-          </span>
         </label>
 
-        <label className="col-span-2 flex flex-col space-y-2">
+        <label className="col-span-2 flex flex-col space-y-2" htmlFor="runtime">
           <span className="text-red-500">RUNTIME</span>
           <AtInput
+            id="runtime"
             className="w-full h-[40px] text-slate-50 bg-[#323232]/95 rounded-md focus:outline-none px-3"
             type="text"
             name="runtime"
@@ -82,9 +85,10 @@ export const OrMovieForm = ({ movieInfo, onSubmit }) => {
       </div>
 
       <div className="pt-8">
-        <label className="w-full">
+        <label className="w-full" htmlFor="overview">
           <span className="text-red-500">OVERVIEW</span>
           <textarea
+            id="overview"
             className="w-full h-32 text-slate-50 bg-[#323232]/95 rounded-md focus:outline-none p-3"
             name="overview"
             defaultValue={movieInfo?.overview}
