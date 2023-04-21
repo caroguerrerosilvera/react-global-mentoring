@@ -156,23 +156,25 @@ function App() {
   }
 
   function handleClickMovie(movie) {
-    console.log(movie);
+    console.log("handleClickMovie");
   }
 
   function handleEditMovie(movie) {
-    console.log(movie);
+    setOpenMovieForm(true);
+    setSelectedMovie(movie);
   }
 
   function handleDeleteMovie(movie) {
-    console.log(movie);
+    console.log("handleDeleteMovie");
   }
 
   function handleCloseMovieForm() {
     setOpenMovieForm(false);
+    setSelectedMovie(null);
   }
 
   return (
-    <div className="flex flex-col space-y-8 mx-auto max-w-4xl" id="root">
+    <div className="flex flex-col space-y-8 mx-auto max-w-5xl" id="root">
       <section className="relative overflow-hidden w-full py-10 px-16">
         <div
           id="hero"
@@ -225,6 +227,7 @@ function App() {
       <section className="grid grid-cols-3 gap-6">
         {movies.map((movie) => (
           <OrMovieTile
+            key={movie.title}
             movie={movie}
             onClick={handleClickMovie}
             onEdit={handleEditMovie}
@@ -242,7 +245,7 @@ function App() {
           title={selectedMovie ? "EDIT MOVIE" : "ADD MOVIE"}
           onClose={handleCloseMovieForm}
         >
-          <OrMovieForm />
+          <OrMovieForm movieInfo={selectedMovie} />
         </OrDialog>
       )}
     </div>

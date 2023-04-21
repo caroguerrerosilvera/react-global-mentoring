@@ -8,12 +8,22 @@ export const OrMovieTile = ({ movie, onClick, onEdit, onDelete }) => {
   const [, setIsMenuOpen] = useState(false);
 
   function handleMenuOpen(event) {
-    event.preventDefault();
+    event.stopPropagation();
     setIsMenuOpen(true);
   }
 
   function handleMenuClose() {
     setIsMenuOpen(false);
+  }
+
+  function handleEdit(event) {
+    event.syntheticEvent.stopPropagation();
+    onEdit?.(movie);
+  }
+
+  function handleDelete(event) {
+    event.syntheticEvent.stopPropagation();
+    onDelete?.(movie);
   }
 
   return (
@@ -37,10 +47,10 @@ export const OrMovieTile = ({ movie, onClick, onEdit, onDelete }) => {
           portal
           id={`menu-${movie.title}`}
         >
-          <MenuItem className="text-red" onClick={() => onEdit(movie)}>
+          <MenuItem className="text-red" onClick={handleEdit}>
             Edit
           </MenuItem>
-          <MenuItem onClick={() => onDelete(movie)}>Delete</MenuItem>
+          <MenuItem onClick={handleDelete}>Delete</MenuItem>
         </Menu>
         <img
           className="h-[400px] w-full"
