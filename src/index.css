@@ -8,4 +8,12 @@ body {
   margin: 0;
   font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #232323;
+}
+
+#hero {
+  background-image: url('/public/hero.png');
+  background-size: auto;
+  background-position: bottom;
+  backdrop-filter: blur(12px);
 }
