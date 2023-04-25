@@ -3,10 +3,12 @@ import { OrMovieTile } from "./OrMovieTile";
 
 describe("OrMovieTile", () => {
   const props = {
-    imageUrl: "https://via.placeholder.com/500x500.png?text=Movie+Poster",
-    title: "Movie Title",
-    genres: ["Action", "Adventure", "Sci-Fi"],
-    releaseYear: "2022",
+    movie: {
+      imageUrl: "https://via.placeholder.com/500x500.png?text=Movie+Poster",
+      title: "Movie Title",
+      genres: ["Action", "Adventure", "Sci-Fi"],
+      releaseYear: "2022",
+    },
     onClick: jest.fn(),
     onEdit: jest.fn(),
     onDelete: jest.fn(),
