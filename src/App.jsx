@@ -2,7 +2,11 @@ import { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 
 import { AtSortBy, AtButton, AtLogo } from "components/atoms";
-import { MlSearchForm, MlGenreSelect } from "components/molecules";
+import {
+  MlSearchForm,
+  MlGenreSelect,
+  MlConfirmationDeleteMovie,
+} from "components/molecules";
 import { OrMovieTile, OrDialog, OrMovieForm } from "components/organisms";
 
 const MOVIES = [
@@ -143,6 +147,7 @@ function App() {
   const [searchText, setSearchText] = useState("");
   const [movies, setMovies] = useState(MOVIES);
   const [openMovieForm, setOpenMovieForm] = useState(false);
+  const [openDeleteConfirmation, setOpenDeleteConfirmation] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState(GENRES[0]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [sortBy, setSortBy] = useState(SORT_BY_OPTIONS[0].value);
@@ -164,12 +169,18 @@ function App() {
     setSelectedMovie(movie);
   }
 
+  function handleDeleteConfirmation(movie) {
+    setOpenDeleteConfirmation(true);
+    setSelectedMovie(movie);
+  }
+
   function handleDeleteMovie(movie) {
     console.log("handleDeleteMovie");
   }
 
-  function handleCloseMovieForm() {
+  function handleCloseModals() {
     setOpenMovieForm(false);
+    setOpenDeleteConfirmation(false);
     setSelectedMovie(null);
   }
 
@@ -231,7 +242,7 @@ function App() {
             movie={movie}
             onClick={handleClickMovie}
             onEdit={handleEditMovie}
-            onDelete={handleDeleteMovie}
+            onDelete={handleDeleteConfirmation}
           />
         ))}
       </section>
@@ -243,9 +254,20 @@ function App() {
       <OrDialog
         open={openMovieForm}
         title={selectedMovie ? "EDIT MOVIE" : "ADD MOVIE"}
-        onClose={handleCloseMovieForm}
+        onClose={handleCloseModals}
       >
         <OrMovieForm movieInfo={selectedMovie} />
+      </OrDialog>
+
+      <OrDialog
+        title="DELETE MOVIE"
+        open={openDeleteConfirmation}
+        onClose={handleCloseModals}
+      >
+        <MlConfirmationDeleteMovie
+          movie={selectedMovie}
+          handleDelete={handleDeleteMovie}
+        />
       </OrDialog>
     </div>
   );
